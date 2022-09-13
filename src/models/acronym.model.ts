@@ -6,7 +6,7 @@ import { ResponseCode, dbFile } from '../config/config';
 
 export const readAcronym = (): IAcronym[] => {
   try {
-    const data = fs.readFileSync(__dirname + '\\' + dbFile);
+    const data = fs.readFileSync(dbFile);
     const acronyms = JSON.parse(data.toString());
     return acronyms;
   } catch (error) {
@@ -16,7 +16,7 @@ export const readAcronym = (): IAcronym[] => {
 
 export const writeAcronym = (acronyms: IAcronym[]) => {
   try {
-    fs.writeFileSync(__dirname + '\\' + dbFile, JSON.stringify(acronyms));
+    fs.writeFileSync(dbFile, JSON.stringify(acronyms));
   } catch (error) {
     throw new HttpException(ResponseCode.InternalServerError, 'file write error');
   }
