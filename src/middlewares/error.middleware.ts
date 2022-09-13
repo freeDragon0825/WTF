@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { ResponseCode } from '../config/config';
+import { ResponseCode } from '../config/constants';
 import { HttpException } from '../exceptions/HttpException';
 
 const errorMiddleware = (

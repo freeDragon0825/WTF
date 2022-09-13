@@ -2,7 +2,7 @@ import request from 'supertest';
 
 import App from '../server';
 import { CreateAcronymDto } from '../dtos/acronyms.dto';
-import { ResponseCode } from '../config/config';
+import { ResponseCode } from '../config/constants';
 
 describe('Acronym test', () => {
   describe('[GET] /acronym', () => {

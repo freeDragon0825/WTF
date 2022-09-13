@@ -1,5 +1,6 @@
 export interface IAcronym {
-  [key: string]: string
+  name: string,
+  desc: string
 }
 
 export interface IQuery {

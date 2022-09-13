@@ -2,11 +2,17 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import dotenv from 'dotenv';
 
 import acronymRoutes from './routes/acronym.routes';
 import errorMiddleware from './middlewares/error.middleware';
+import connectDB from './config/db';
 
 const app = express();
+
+dotenv.config();
+
+connectDB();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -1,4 +1,4 @@
-export const dbFile = './src/models/acronym.json';
+export const acronymFile = './src/models/acronym.json';
 
 export enum ResponseCode {
   Success = 200,

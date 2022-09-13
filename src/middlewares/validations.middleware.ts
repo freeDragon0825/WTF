@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 import { validate, ValidationError } from 'class-validator';
 import { RequestHandler } from 'express';
 
-import { ResponseCode } from '../config/config';
+import { ResponseCode } from '../config/constants';
 import { HttpException } from '../exceptions/HttpException';
 
 const validationMiddleware = (
@@ -13,7 +13,6 @@ const validationMiddleware = (
   forbidNonWhitelisted = true,
 ): RequestHandler => {
   return (req, res, next) => {
-    console.log(req.body);
     validate(plainToClass(type, req[value]), {
       skipMissingProperties,
       whitelist,
