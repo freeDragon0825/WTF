@@ -2,15 +2,15 @@
   "name": "wtf",
   "version": "1.0.0",
   "description": "This is NodeJS code challenge for WTF.",
-  "main": "src/server.js",
+  "main": "src/server.ts",
   "type": "commonjs",
   "scripts": {
     "test": "jest --forceExit",
     "lint": "eslint . --fix",
     "prepare": "husky install",
     "server": "nodemon src/server.ts",
-    "build": "npx tsc",
-    "start": "node src/server.js"
+    "postinstall": "tsc",
+    "start": "node dist/src/server.js"
   },
   "author": "",
   "license": "MIT",
