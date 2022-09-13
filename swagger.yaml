@@ -1,0 +1,113 @@
+tags:
+- name: acronyms
+  description: acronyms API
+paths:
+# [GET] acronyms
+  /acronym:
+    get:
+      tags:
+      - acronyms
+      summary: Retrieve Acronyms
+      parameters:
+      - name: from
+        in: query
+        description: From
+        required: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Search
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Array of Acronyms
+# [POST] acronyms
+    post:
+      tags:
+      - acronyms
+      summary: Add a new acronym
+      parameters:
+      - in: body
+        name: acronym
+        definition: body
+        description: Acronym info
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: __
+            desc:
+              type: string
+              example: this is a test acronym
+      responses:
+        200:
+          description: 'Insert Success.'
+# [PUT] acronyms/acronym
+  /acronym/{acronym}:
+    put:
+      tags:
+      - acronyms
+      summary: Update Acronym Data by Acronym
+      parameters:
+      - name: acronym
+        in: path
+        required: true
+      - name: acronym
+        in: body
+        definition: body
+        description: Acronym info
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: __
+            desc:
+              type: string
+              example: updated
+      responses:
+        200:
+          description: 'Update Success.'
+# [DELETE] acronyms/acronym
+    delete:
+      tags:
+      - acronyms
+      summary: Delete Acronym Data By Acronym
+      parameters:
+      - name: acronym
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: 'Delete Success.'
+# definitions
+definitions:
+  acronyms:
+    type: object
+    required:
+        - acronym
+        - definition
+    properties:
+      acronym:
+        type: string
+        description: acronym
+      definition:
+        type: string
+        description: acronym definition
+schemes:
+ - https
+ - http
