@@ -8,10 +8,10 @@
     "test": "jest --forceExit",
     "lint": "eslint . --fix",
     "prepare": "husky install",
-    "server": "nodemon src/server.ts",
+    "dev": "nodemon src/server.ts",
     "build": "npx tsc",
     "postinstall": "tsc",
-    "start": "node dist/src/server.js"
+    "start": "cross-env NODE_ENV=mongodb+srv://nevermind0825:dragon_25_MONGO@cluster0.wfbcu9s.mongodb.net/WTF node dist/src/server.js"
   },
   "author": "",
   "license": "MIT",
