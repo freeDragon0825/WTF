@@ -1,7 +1,3 @@
-import { config } from 'dotenv';
-
-config({ path: '../../.env' });
-
 export const dbFile = 'acronym.json';
 
 export enum ResponseCode {
