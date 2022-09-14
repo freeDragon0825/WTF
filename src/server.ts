@@ -1,12 +1,15 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import { graphqlHTTP } from 'express-graphql';
+import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
 import acronymRoutes from './routes/acronym.routes';
 import errorMiddleware from './middlewares/error.middleware';
 import connectDB from './config/db';
+import { swaggerRoute, graphqlRoute } from './config/constants';
+import graphqls from './graphqls';
 
 const app = express();
 
@@ -31,7 +34,21 @@ const options = {
   apis: ['swagger.yaml'],
 };
 const specs = swaggerJSDoc(options);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use(swaggerRoute, swaggerUi.serve, swaggerUi.setup(specs));
+
+// for graphql
+app.use(
+  graphqlRoute,
+  graphqlHTTP((req, res, graphqlParams) => ({
+    schema: graphqls.schema,
+    rootValue: graphqls.resolver,
+    graphiql: true,
+    context: {
+      req,
+      res,
+    },
+  })),
+);
 
 const port = process.env.PORT || 80;
 
