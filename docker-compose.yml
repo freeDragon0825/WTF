@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  wtf:
+    image: wtf:1.0
+    ports:
+      - 80:80
+    environment:
+      - MONGO_URI=mongodb+srv://nevermind0825:dragon_25_MONGO@cluster0.wfbcu9s.mongodb.net/WTF
+  mongodb:
+    image: mongo:5.0
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=nevermind0825
+      - MONGO_INITDB_ROOT_PASSWORD=dragon_25_MONGO
