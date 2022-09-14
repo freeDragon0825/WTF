@@ -6,3 +6,6 @@ Open [https://wtf-node.herokuapp.com/](https://wtf-node.herokuapp.com/) to view 
 
 ### Api docs url
 Open [https://wtf-node.herokuapp.com/api-docs/](https://wtf-node.herokuapp.com/api-docs/) to view it in the browser.
+
+### GraphQL url
+Open [https://wtf-node.herokuapp.com/graphql/](https://wtf-node.herokuapp.com/graphql/) to view it in the browser.
